@@ -1,6 +1,7 @@
 package com.coderscampus.lesson5;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class SortingApplication {
 
@@ -40,7 +41,22 @@ public class SortingApplication {
 			System.out.println(person.getName());
 		}
 		
+// Sorting by Comparator.	Good for if you can't modify the class or file you have to sort.	
 		
+		System.out.println("- - - - - -");
+		Arrays.sort(people, new PersonHeightComparator()); 
+		
+//		This is a way to write the same code without creating a new class.	
+//		
+//		Arrays.sort(people, new Comparator<Person>() {
+//			@Override
+//			public int compare(Person person1, Person person2) {
+//				return person1.getHeight().compareTo(person2.getHeight());
+//			}
+//		});
+		
+		for (Person person : people) {
+			System.out.println(person.getName() + " is " + person.getHeight() + " inches tall.");
+		}
 	}
-
 }
